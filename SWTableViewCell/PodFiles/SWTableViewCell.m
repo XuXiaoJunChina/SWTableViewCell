@@ -283,6 +283,18 @@ static NSString * const kTableViewPanState = @"state";
     [self layoutIfNeeded];
 }
 
+- (void)setRightBtnTitles:(NSArray *)rightBtnTitles
+{
+    int i = 0;
+    if (rightBtnTitles.count != self.rightUtilityButtonsView.utilityButtons.count ) {
+        return;
+    }
+    for (UIButton *rightBtn in self.rightUtilityButtonsView.utilityButtons) {
+        [rightBtn setTitle:rightBtnTitles[i] forState:UIControlStateNormal];
+        i ++;
+    }
+}
+
 #pragma mark - UITableViewCell overrides
 
 - (void)didMoveToSuperview
